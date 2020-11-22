@@ -1,0 +1,55 @@
+body {
+   font-family: Arial, sans-serif; 
+}
+
+.tool-title {
+    margin: 20px 20px 0px 40px;
+    padding: 20px 20px 0px 40px;
+    font-size: 1.5em
+}
+
+.mongo-tool-table {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+    margin: 5px 20px 20px 20px;
+}
+.mongo-tool-table thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+.mongo-tool-table tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.mongo-tool-table tbody button {
+    border: 0.3rem solid rgb(32, 181, 192); 
+    border-radius: 0.3rem;
+    background:rgb(32, 181, 192); 
+    color:white;
+}
+
+.mongo-tool-table tbody button.disabled {
+    background:rgb(152, 157, 158);
+    border-color:rgb(152, 157, 158);
+}
+
+.backup-table-section {
+    padding: 20px;
+}
+
+.error-overlay {
+    color: rgb(206, 18, 18);
+}
+
+.no-data-overlay {
+    margin-bottom: 20px;
+}

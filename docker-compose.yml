@@ -1,0 +1,35 @@
+version: '3'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+    environment:
+      PORT: 8080
+      MONGO_HOST: backup-db
+      BACKUP_LOCATION: 'src/server/data/backups'
+    command: npm start
+    restart: always
+    network_mode: bridge
+    links:
+      - mongo:backup-db
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:3.6.6
+    ports:
+      - 27017:27017
+    command: --storageEngine wiredTiger --quiet --replSet mongo01
+    network_mode: bridge
+
+  mongo-setup:
+    image: mongo:3.6.6
+    entrypoint: sh -c 'sleep 5 && mongo --host backup-db --eval "rs.initiate()" && mongo admin --host backup-db --eval "rs.status()"'
+    links:
+      - mongo:backup-db
+    depends_on:
+      - mongo
+    network_mode: bridge
